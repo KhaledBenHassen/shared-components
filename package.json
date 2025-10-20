@@ -1,5 +1,5 @@
 {
-  "name": "@futalis-it/shared-components",
+  "name": "@khaledbenhassen/shared-components",
   "version": "0.0.1",
   "description": "Futalis Shared Header and Footer Components",
   "main": "dist/index.cjs.js",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/futalis-it/shared-components.git"
+    "url": "https://github.com/KhaledBenHassen/shared-components.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
