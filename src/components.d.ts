@@ -6,6 +6,110 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FutalisFooter {
+        /**
+          * Business hours
+          * @default 'Mo - Fr: 9 - 17'
+         */
+        "businessHours": string;
+        /**
+          * Copyright text
+          * @default '© futalis GmbH'
+         */
+        "copyrightText": string;
+        /**
+          * Impressum URL
+          * @default '/impressum'
+         */
+        "impressumUrl": string;
+        /**
+          * Current locale (en, de, etc.)
+          * @default 'en'
+         */
+        "locale": string;
+        /**
+          * Phone number
+          * @default '+49 341 392 987 9 0'
+         */
+        "phoneNumber": string;
+        /**
+          * Privacy policy URL
+          * @default '/datenschutz'
+         */
+        "privacyUrl": string;
+        /**
+          * Show newsletter link
+          * @default false
+         */
+        "showNewsletter": boolean;
+        /**
+          * Show payment methods
+          * @default true
+         */
+        "showPaymentMethods": boolean;
+        /**
+          * WhatsApp number
+          * @default '4934139298790'
+         */
+        "whatsappNumber": string;
+    }
+    interface FutalisHeader {
+        /**
+          * Customer account URL
+          * @default '/customer/account/home'
+         */
+        "customerAccountUrl": string;
+        /**
+          * FAQ URL
+          * @default '/ueber-futalis/service/faq'
+         */
+        "faqUrl": string;
+        /**
+          * Home URL
+          * @default '/'
+         */
+        "homeUrl": string;
+        /**
+          * Interface/vet login URL
+          * @default '/interface'
+         */
+        "interfaceUrl": string;
+        /**
+          * Whether the user is logged in
+          * @default false
+         */
+        "isLoggedIn": boolean;
+        /**
+          * Is the user a partner
+          * @default false
+         */
+        "isPartner": boolean;
+        /**
+          * Item count for the cart badge
+          * @default 0
+         */
+        "itemCount": number;
+        /**
+          * Current locale (en, de, etc.)
+          * @default 'en'
+         */
+        "locale": string;
+        /**
+          * Menu items array
+          * @default []
+         */
+        "menuItems": Array<{ name: string; url: string; content?: string }>;
+        /**
+          * Show mini cart
+          * @default false
+         */
+        "showMiniCart": boolean;
+        /**
+          * User's first name (shown when logged in)
+          * @default ''
+         */
+        "userName": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -21,7 +125,51 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface FutalisFooterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFutalisFooterElement;
+}
+export interface FutalisHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFutalisHeaderElement;
+}
 declare global {
+    interface HTMLFutalisFooterElementEventMap {
+        "newsletterClick": void;
+    }
+    interface HTMLFutalisFooterElement extends Components.FutalisFooter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLFutalisFooterElementEventMap>(type: K, listener: (this: HTMLFutalisFooterElement, ev: FutalisFooterCustomEvent<HTMLFutalisFooterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLFutalisFooterElementEventMap>(type: K, listener: (this: HTMLFutalisFooterElement, ev: FutalisFooterCustomEvent<HTMLFutalisFooterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLFutalisFooterElement: {
+        prototype: HTMLFutalisFooterElement;
+        new (): HTMLFutalisFooterElement;
+    };
+    interface HTMLFutalisHeaderElementEventMap {
+        "logoClick": void;
+        "cartClick": void;
+        "menuItemClick": { index: number; url: string };
+    }
+    interface HTMLFutalisHeaderElement extends Components.FutalisHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLFutalisHeaderElementEventMap>(type: K, listener: (this: HTMLFutalisHeaderElement, ev: FutalisHeaderCustomEvent<HTMLFutalisHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLFutalisHeaderElementEventMap>(type: K, listener: (this: HTMLFutalisHeaderElement, ev: FutalisHeaderCustomEvent<HTMLFutalisHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLFutalisHeaderElement: {
+        prototype: HTMLFutalisHeaderElement;
+        new (): HTMLFutalisHeaderElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +177,132 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "futalis-footer": HTMLFutalisFooterElement;
+        "futalis-header": HTMLFutalisHeaderElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface FutalisFooter {
+        /**
+          * Business hours
+          * @default 'Mo - Fr: 9 - 17'
+         */
+        "businessHours"?: string;
+        /**
+          * Copyright text
+          * @default '© futalis GmbH'
+         */
+        "copyrightText"?: string;
+        /**
+          * Impressum URL
+          * @default '/impressum'
+         */
+        "impressumUrl"?: string;
+        /**
+          * Current locale (en, de, etc.)
+          * @default 'en'
+         */
+        "locale"?: string;
+        /**
+          * Event emitted when newsletter link is clicked
+         */
+        "onNewsletterClick"?: (event: FutalisFooterCustomEvent<void>) => void;
+        /**
+          * Phone number
+          * @default '+49 341 392 987 9 0'
+         */
+        "phoneNumber"?: string;
+        /**
+          * Privacy policy URL
+          * @default '/datenschutz'
+         */
+        "privacyUrl"?: string;
+        /**
+          * Show newsletter link
+          * @default false
+         */
+        "showNewsletter"?: boolean;
+        /**
+          * Show payment methods
+          * @default true
+         */
+        "showPaymentMethods"?: boolean;
+        /**
+          * WhatsApp number
+          * @default '4934139298790'
+         */
+        "whatsappNumber"?: string;
+    }
+    interface FutalisHeader {
+        /**
+          * Customer account URL
+          * @default '/customer/account/home'
+         */
+        "customerAccountUrl"?: string;
+        /**
+          * FAQ URL
+          * @default '/ueber-futalis/service/faq'
+         */
+        "faqUrl"?: string;
+        /**
+          * Home URL
+          * @default '/'
+         */
+        "homeUrl"?: string;
+        /**
+          * Interface/vet login URL
+          * @default '/interface'
+         */
+        "interfaceUrl"?: string;
+        /**
+          * Whether the user is logged in
+          * @default false
+         */
+        "isLoggedIn"?: boolean;
+        /**
+          * Is the user a partner
+          * @default false
+         */
+        "isPartner"?: boolean;
+        /**
+          * Item count for the cart badge
+          * @default 0
+         */
+        "itemCount"?: number;
+        /**
+          * Current locale (en, de, etc.)
+          * @default 'en'
+         */
+        "locale"?: string;
+        /**
+          * Menu items array
+          * @default []
+         */
+        "menuItems"?: Array<{ name: string; url: string; content?: string }>;
+        /**
+          * Event emitted when cart icon is clicked
+         */
+        "onCartClick"?: (event: FutalisHeaderCustomEvent<void>) => void;
+        /**
+          * Event emitted when logo is clicked
+         */
+        "onLogoClick"?: (event: FutalisHeaderCustomEvent<void>) => void;
+        /**
+          * Event emitted when menu item is clicked
+         */
+        "onMenuItemClick"?: (event: FutalisHeaderCustomEvent<{ index: number; url: string }>) => void;
+        /**
+          * Show mini cart
+          * @default false
+         */
+        "showMiniCart"?: boolean;
+        /**
+          * User's first name (shown when logged in)
+          * @default ''
+         */
+        "userName"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +318,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "futalis-footer": FutalisFooter;
+        "futalis-header": FutalisHeader;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +327,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "futalis-footer": LocalJSX.FutalisFooter & JSXBase.HTMLAttributes<HTMLFutalisFooterElement>;
+            "futalis-header": LocalJSX.FutalisHeader & JSXBase.HTMLAttributes<HTMLFutalisHeaderElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

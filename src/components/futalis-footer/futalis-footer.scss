@@ -1,0 +1,197 @@
+.futalis-footer-wrapper {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  background-color: #4a4a49;
+  color: white;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+
+  .icons {
+    padding: 20px 0;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .gray {
+    color: #707070;
+  }
+
+  .top-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #bccf00;
+    margin-bottom: 35px;
+  }
+
+  .main-container {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .left-container {
+    float: left;
+    width: 30%;
+    min-width: 300px;
+
+    @media (min-width: 1025px) {
+      text-align: left;
+    }
+  }
+
+  .middle-container {
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 0 10px;
+    min-width: 250px;
+
+    @media (min-width: 1025px) {
+      text-align: left;
+    }
+
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      margin: 20px auto;
+      max-width: 240px;
+
+      @media (min-width: 1025px) {
+        justify-content: flex-start;
+        margin: 20px 0;
+      }
+    }
+
+    .payment-icon {
+      width: 64px !important;
+      height: 44px !important;
+      filter: brightness(0.9);
+      transition: filter 0.2s ease;
+      border-radius: 3px;
+      border: 1px solid #e3e3e2;
+      background-color: white;
+      padding: 2px;
+      object-fit: none;
+      flex-shrink: 0;
+      box-sizing: border-box;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  .right-container {
+    float: right;
+    width: 430px;
+    text-align: right;
+    padding-right: 10px;
+    flex-grow: 1;
+
+    a {
+      white-space: nowrap;
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.newsletter {
+        padding-top: 10px;
+        padding-left: 97px;
+        float: left;
+        text-align: left;
+      }
+    }
+  }
+
+  .contact {
+    padding: 20px 0;
+    max-width: 400px;
+    margin: auto;
+    font-size: 16px;
+
+    @media (min-width: 1025px) {
+      margin: 0;
+    }
+
+    i {
+      padding-bottom: 15px;
+    }
+
+    a {
+      display: block;
+      width: 50%;
+      float: left;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .footer-icon {
+    display: inline-block;
+    margin: 0 25px;
+    width: 50px;
+    height: 45px;
+    background: url('https://media.futalis.com/futalis/futalis-sprite-2019-03.png') repeat -49px -27px transparent;
+    background-size: auto;
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5) {
+      background-image: url('https://media.futalis.com/futalis/futalis-sprite-2019-03@2x.png') !important;
+      background-size: 230px 460px !important;
+    }
+  }
+
+  .gmp {
+    background-position: -49px -27px;
+  }
+
+  .trusted {
+    background-position: 0px -27px;
+  }
+
+  .tuv {
+    background-position: -102px -27px;
+  }
+}
+
+/* Responsive Display */
+.mobile {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block !important;
+  }
+
+  @media (min-width: 1025px) {
+    display: none !important;
+  }
+}
+
+.desktop {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: none !important;
+  }
+
+  @media (min-width: 1025px) {
+    display: block !important;
+  }
+}

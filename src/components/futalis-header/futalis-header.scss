@@ -1,0 +1,403 @@
+.futalis-header-wrapper {
+  width: 100%;
+}
+
+.cover {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 5;
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  color: #333333;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+
+  .icons {
+    margin-top: 10px;
+  }
+
+  .top-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #bccf00;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    position: relative;
+  }
+
+  .wide-container {
+    background-color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 8;
+  }
+
+  .main-container {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .left-container {
+    text-align: left;
+    width: 345px;
+
+    .menu-container {
+      width: 50px;
+      float: left;
+
+      i.fa-bars {
+        color: #bccf00;
+        padding: 5px 10px;
+        display: block;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .middle-container {
+    text-align: center;
+    min-width: 210px;
+    flex-grow: 1;
+    padding: 4px 0;
+
+    .logo {
+      color: #bccf00;
+      font-family: 'Days One', Arial, sans-serif;
+      font-size: 50px;
+      cursor: pointer;
+
+      span {
+        font-size: 15px;
+        vertical-align: super;
+        font-family: 'PT Sans', Arial, sans-serif;
+        line-height: 50px;
+      }
+    }
+  }
+
+  .right-container {
+    min-width: 310px;
+    text-align: right;
+    color: white;
+    font-size: 14px !important;
+    line-height: 44px;
+    font-family: 'PT Sans', Arial, sans-serif;
+
+    .button {
+      display: inline-block;
+      height: 41px;
+      border-radius: 0 0 5px 5px;
+      padding: 0 10px;
+      margin: 0 5px;
+      text-decoration: none;
+      color: white;
+
+      div.header-icon {
+        position: relative;
+        top: 5px;
+      }
+    }
+
+    .vet-login {
+      background-color: #8b8d8a;
+    }
+
+    .partner-login {
+      background-color: #808080;
+    }
+
+    .customer-login {
+      background-color: #6b9903;
+    }
+
+    .cart-button {
+      background-color: #6b9903;
+    }
+  }
+
+  .header-icon {
+    display: inline-block;
+    margin: 0 5px;
+    width: 35px;
+    height: 32px;
+    background-image: url('https://media.futalis.com/futalis/futalis-sprite-2019-03.png');
+    background-repeat: repeat;
+    background-color: transparent;
+    background-size: auto;
+
+    &.light {
+      filter: grayscale(100%);
+      opacity: 0.5;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5) {
+      background-image: url('https://media.futalis.com/futalis/futalis-sprite-2019-03@2x.png') !important;
+      background-size: 230px 460px !important;
+    }
+
+    &.small {
+      background-size: 160px 320px !important;
+    }
+
+    &.uni {
+      background-position: 0px -197px;
+      width: 145px;
+    }
+
+    &.gmp {
+      background-position: -34px -19px;
+    }
+
+    &.trusted {
+      background-position: 1px -19px;
+    }
+
+    &.tuv {
+      background-position: -70px -19px;
+    }
+
+    &.vet {
+      background-position: 0 114px;
+      height: 24px;
+      width: 15px;
+      margin: 0;
+    }
+
+    &.person {
+      background-position: -92px 36px;
+      height: 24px;
+      width: 15px;
+      margin: 0;
+    }
+
+    &.cart {
+      background-position: 0 74px;
+      height: 27px;
+      width: 32px;
+      margin: 0;
+      position: relative;
+    }
+  }
+}
+
+/* Mobile-specific header styles */
+.mobile.header {
+  .wide-container {
+    display: flex;
+    color: white;
+    height: 50px;
+    width: 100%;
+    background-color: #bccf00;
+    z-index: 9;
+    position: relative;
+    align-items: center;
+  }
+
+  .left-container {
+    width: 100px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    i {
+      margin: 2px 10px;
+    }
+  }
+
+  .middle-container {
+    min-width: 100px;
+    height: 40px;
+    flex-grow: 1;
+    text-align: center;
+
+    .logo {
+      color: white;
+      font-family: 'Days One', Arial, sans-serif;
+      font-size: 30px;
+      cursor: pointer;
+
+      span {
+        font-size: 10px;
+        vertical-align: super;
+        font-family: 'PT Sans', Arial, sans-serif;
+        line-height: 30px;
+      }
+    }
+  }
+
+  .right-container {
+    width: 100px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+
+  .header-icon {
+    display: inline-block;
+    margin: 0 10px;
+    width: 35px;
+    height: 32px;
+    background-image: url('https://media.futalis.com/futalis/futalis-sprite-2019-03.png');
+    background-repeat: repeat;
+    background-color: transparent;
+    background-size: auto;
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5) {
+      background-image: url('https://media.futalis.com/futalis/futalis-sprite-2019-03@2x.png') !important;
+      background-size: 230px 460px !important;
+    }
+
+    &.small {
+      background-size: 160px 320px !important;
+    }
+
+    &.person {
+      background-position: -62px 32px;
+      height: 25px;
+      width: 22px;
+    }
+
+    &.cart {
+      background-position: 0 74px;
+      height: 27px;
+      width: 32px;
+      position: relative;
+    }
+
+    &.faq {
+      background-position: -28px 35px;
+      height: 24px;
+      width: 130px;
+      zoom: 105%;
+    }
+  }
+}
+
+/* Menu Styles */
+.menu-container {
+  position: relative;
+}
+
+.menu-cover {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  left: 0;
+  top: 0;
+}
+
+.menu {
+  position: absolute;
+  z-index: 7;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  transition: max-height 0.2s linear;
+  max-height: 0;
+  height: auto;
+  overflow: hidden;
+
+  &.opened {
+    max-height: 1000px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    left: 0;
+  }
+
+  div.menu-item {
+    min-height: 70px;
+    overflow: hidden;
+
+    div {
+      font-size: 20px;
+      font-family: 'Roboto', Arial, sans-serif;
+      color: #333333;
+      background-color: white;
+      border-bottom: 1px solid lightgray;
+      width: 100%;
+      display: block;
+      line-height: 70px;
+      padding: 0 40px;
+      cursor: pointer;
+      height: 70px;
+      position: relative;
+
+      .plus {
+        position: absolute;
+        right: 40px;
+        top: 0;
+      }
+
+      &.sub {
+        height: auto;
+        max-height: 0;
+        line-height: 50px;
+        font-size: 16px;
+        padding: 0 0 0 40px;
+        border-bottom: none;
+        transition: max-height 0.2s ease-in-out;
+
+        &.show {
+          max-height: 300px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+    }
+  }
+}
+
+/* Item Count Badge */
+.item-count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  color: #6b9903;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+/* Responsive Display */
+.mobile {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block !important;
+  }
+
+  @media (min-width: 1025px) {
+    display: none !important;
+  }
+}
+
+.desktop {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: none !important;
+  }
+
+  @media (min-width: 1025px) {
+    display: block !important;
+  }
+}

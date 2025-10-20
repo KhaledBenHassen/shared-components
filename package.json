@@ -1,21 +1,21 @@
 {
-  "name": "futalis-shared-header-footer-poc",
+  "name": "@futalis-it/shared-components",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Futalis Shared Header and Footer Components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/futalis-shared-header-footer-poc/futalis-shared-header-footer-poc.esm.js",
+  "unpkg": "dist/futalis-shared-components/futalis-shared-components.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/futalis-shared-header-footer-poc/futalis-shared-header-footer-poc.esm.js",
-      "require": "./dist/futalis-shared-header-footer-poc/futalis-shared-header-footer-poc.cjs.js"
+      "import": "./dist/futalis-shared-components/futalis-shared-components.esm.js",
+      "require": "./dist/futalis-shared-components/futalis-shared-components.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+    "./components": {
+      "import": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts"
     },
     "./loader": {
       "import": "./loader/index.js",
@@ -25,7 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
+    "url": "https://github.com/futalis-it/shared-components.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "files": [
     "dist/",
