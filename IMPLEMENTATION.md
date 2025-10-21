@@ -12,7 +12,8 @@ This document outlines the complete implementation of shared header and footer c
 4. [Integration: Shop (Nuxt 3)](#4-integration-shop-nuxt-3)
 5. [Integration: Next.js](#5-integration-nextjs)
 6. [Troubleshooting](#6-troubleshooting)
-7. [Technical Reference](#7-technical-reference)
+7. [TODOs / Next Steps](#7-todos--next-steps)
+8. [Technical Reference](#8-technical-reference)
 
 ---
 
@@ -257,7 +258,38 @@ Before publishing:
 
 ---
 
-## 7. Technical Reference
+## 7. TODOs / Next Steps
+
+**Current State:** POC with static, simplified components
+
+**What Needs to Work:**
+
+1. **Dynamic Data from API**
+   - Menu items loaded from API
+   - User session data
+   - Real-time updates
+
+2. **Reactivity**
+   - Logged-in customer display (name, status)
+   - Cart item count updates
+   - Conditional rendering based on user role
+
+3. **Custom Events & Interactions**
+   - Logout confirmation popup (on hover like original CAPI)
+   - Menu interactions (expandable, sub-menus)
+   - Cart preview on hover
+   - Can Stencil emit events to parent (Vue/React)? **Answer: YES**
+
+4. **Feature Parity**
+   - Everything works exactly as the original CAPI implementation
+   - All user flows preserved
+   - All popups, modals, and interactions functional
+
+**Approach:** Stencil components handle presentation, parent components (Vue/React) handle data and business logic.
+
+---
+
+## 8. Technical Reference
 
 This section contains detailed code examples for all integrations.
 
