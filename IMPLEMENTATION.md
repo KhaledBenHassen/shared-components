@@ -4,6 +4,46 @@
 
 This document outlines the complete implementation of shared header and footer components using Stencil.js, published to GitHub Packages, and integrated into three different frameworks: Vue 3 (CAPI), Nuxt 3 (shop), and Next.js (futalis-next-wp).
 
+### Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Stencil.js Component Library (futalis-shared-components)   │
+│  ┌──────────────┐         ┌──────────────┐                  │
+│  │ TypeScript   │  ──────>│  Stencil     │                  │
+│  │ + JSX        │         │  Compiler    │                  │
+│  └──────────────┘         └──────────────┘                  │
+│                                  │                          │
+│                                  ▼                          │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │          Standard Web Components                    │    │
+│  │  (Browser-native custom elements)                   │    │
+│  └─────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────┴───────────────┬───────────────┐
+        │                               │               │
+        ▼                               ▼               ▼
+┌──────────────┐              ┌──────────────┐  ┌──────────────┐
+│  Vue 3       │              │  Nuxt 3      │  │  Next.js     │
+│  (CAPI)      │              │  (Shop)      │  │  (WP Blog)   │
+└──────────────┘              └──────────────┘  └──────────────┘
+        │                               │               │
+        ▼                               ▼               ▼
+   Uses custom                    Uses custom      Uses custom
+   element tags                   element tags     element tags
+   <futalis-header>               <futalis-header> <futalis-header>
+   <futalis-footer>               <futalis-footer> <futalis-footer>
+```
+
+**How It Works:**
+1. Write components once in Stencil (TypeScript + JSX)
+2. Stencil compiles to standard Web Components
+3. Deploy to GitHub Packages
+4. All apps consume the same components
+5. Components work identically across Vue, React, and vanilla JS
+
 ## Table of Contents
 
 1. [Building the Stencil Component Library](#1-building-the-stencil-component-library)
